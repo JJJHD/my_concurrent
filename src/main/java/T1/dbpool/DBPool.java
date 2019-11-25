@@ -1,6 +1,4 @@
-package T1;
-
-import T1.dbpool.SqlConnectImpl;
+package T1.dbpool;
 
 import java.sql.Connection;
 import java.util.LinkedList;

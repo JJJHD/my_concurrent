@@ -1,7 +1,5 @@
 package T1.dbpool;
 
-import T1.DBPool;
-
 import java.sql.Connection;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DBPoolTest {
 
     static DBPool pool = new DBPool(10);
-    static  int threadCount = 50;
+    static  int threadCount = 500;
     static CountDownLatch end = new CountDownLatch(threadCount);
 
     public static void main(String[] args) throws InterruptedException {
@@ -23,7 +21,9 @@ public class DBPoolTest {
         for (int i = 0;i<threadCount;i++){
             new Thread(new Worker(count,got,notGot),"worker_"+i).start();
         }
+
         end.await();
+
         System.out.println("total times ["+threadCount*count+"]");
         System.out.println("success times ["+got+"]");
         System.out.println("failed times ["+notGot+"]");
