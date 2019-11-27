@@ -29,7 +29,7 @@ public class DaemonThread {
                 while (!isInterrupted()){
                     System.out.println("2222");
                 }
-                System.exit(-1);
+//                System.exit(-1);
                 System.out.println("2 continue");
             }catch (Exception e){
 
